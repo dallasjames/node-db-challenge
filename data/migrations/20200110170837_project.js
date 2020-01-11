@@ -3,7 +3,7 @@ exports.up = async function(knex) {
     const id = "id"
     await knex.schema.createTable("projects", (table) => {
         table.increments(id)
-        table.string("name").notNullable()
+        table.string("names").notNullable()
         table.string("description")
         table.boolean("done").notNullable().defaultTo(false)
     })

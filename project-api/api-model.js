@@ -5,9 +5,9 @@ function getProjects() {
 }
 
 function getTasks() {
-    return db("tasks")
-        .join("projects")        
-        .select("projects.name", "projects.description", "project.done", "tasks.name", "tasks.done")
+    return db("projects")
+        .join("tasks")
+        .select("projects.id", "projects.names", "projects.description", "tasks.name")
 }
 
 function getResources() {
@@ -29,3 +29,11 @@ async function newTask(task) {
     return db("tasks").where({ id }).first()
 }
 
+module.exports = {
+    getProjects,
+    getTasks,
+    getResources,
+    newProject,
+    newResource,
+    newTask
+}
